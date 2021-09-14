@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+let projectData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -33,6 +33,12 @@ const port = 3000;
 //     response.send('Hello, this is Omar Elewa');
 // });
 
+// Defining an end-point to return all ads
+app.get('/', (req, res) => {
+  res.send(projectData);
+});
+
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Express server listening on port ${port}`);
 });
