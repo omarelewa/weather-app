@@ -60,7 +60,7 @@ app.post('/add', function addWeatherEntry(request, response) {
   console.log(newData);
   projectData.weatherentry.push(newData);
   console.log(projectData);
-  res.send({
+  response.send({
     status: "successful"
   });
 });
