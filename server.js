@@ -1,5 +1,8 @@
 // Setup empty JS object to act as endpoint for all routes
-let projectData = {};
+let projectData = {
+  weatherentry: []
+};
+// const api_key = 'e5935c759f600ef1895b289b2deb85f3';
 
 // Require Express to run server and routes
 const express = require('express');
@@ -29,14 +32,39 @@ app.use(express.static('website'));
 const port = 3000;
 
 // DEBUGGING EXPRESS SERVER INITIALIZATION
-// app.get('/', (request, response)=>{
-//     response.send('Hello, this is Omar Elewa');
-// });
 
 // Defining an end-point to return all ads
-app.get('/', (req, res) => {
-  res.send(projectData);
+app.get('/all', function getProjectData(req, res) {
+  
+  res.send(projectData.weatherentry);
+  
+  // res.send(projectData);
+  // console.log prints in the local terminal
+  // console.log('Hello there!');
+  // console.log(req.url);
+  // console.log(req.ip);
+  // console.log(req.hostname);
+  // console.log(req.method);
+  // console.log(req.protocol);
+  // console.log(req.path);
+  // console.log(req.query);
+  // console.log(req.subdomains);
+  // user/72  /product/223
+  // app.get("/user/:id")     app.get("/product/:id")
+  // req.params.id
+  // console.log(req.params);
 });
+
+app.post('/add', function addWeatherEntry(request, response) {
+  const newData = request.body;
+  console.log(newData);
+  projectData.weatherentry.push(newData);
+  console.log(projectData);
+  res.send({
+    status: "successful"
+  });
+});
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
