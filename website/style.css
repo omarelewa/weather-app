@@ -1,14 +1,20 @@
 body{
-    background: #fffff8;
+    background: #424242;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    display: list-item;
+}
+
+div{
+    display: block;
+    white-space: normal;
 }
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    /* grid-auto-rows: minmax(150px, auto); */
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
+    background: #000000;
     color: #f0d43a;
     justify-content: center;
     grid-gap: 1em;
@@ -21,7 +27,8 @@ body{
 }
 
 .entry{
-    background: rgba(59, 74, 107, .4);
+    background: #424242;
+    height: fit-content;
 }
 
 #entryHolder{
@@ -41,6 +48,7 @@ body{
 }
 
 .headline {
+    font-size: 5em;
 
 }
 .title{
@@ -55,9 +63,9 @@ label{
 
 input{
     display:block;
-    height: 60px;
+    height: 50px;
     width: 320px;
-    background:#22b2da;
+    background:#424242;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -67,7 +75,7 @@ input{
 button{
     width: 400px;
     height: 100px;
-    background: #3b4a6b;
+    background: #424242;
     color: #f0d43a;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
@@ -79,10 +87,12 @@ h1{
 }
 
 textarea{
-    background:#22b2da;
+    background:#424242;
     color: #f0d43a;
+    height: 200px;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    white-space: normal;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
@@ -109,3 +119,25 @@ button:focus {
     font-family: 'Oswald', sans-serif;
 
 } 
+.pure-g > div {
+    box-sizing: border-box;
+}
+.l-box {
+    padding-right: 0em;
+    padding-left: 0em;
+    height: 100%;
+}
+.r-box{
+    border: 0;
+    padding: 0;
+    padding-right: 0em;
+    padding-left: 0em;
+    justify-content: right;
+}
+.myInput{
+    max-width: 100%;
+}
+.pure-button{
+    border: 0px;
+    padding: 0px;
+}

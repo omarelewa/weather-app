@@ -5,20 +5,28 @@
     <title>Weather Journal</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <style>
+      
+  </style>
   </head>
   <body>
     <div id = "app">
       <div class ="holder headline">
         Weather Journal App
       </div>
-      <div class ="holder zip">
-        <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here">
+      <div>
+        <div class ="holder zip pure-g">
+          <label class="pure-u-1-3" for="zip">Enter Zipcode here</label>
+          <input class="pure-u-2-3" type="text" id="zip" placeholder="enter zip code here">
+        </div>
+        <div class ="holder feel pure-g">
+          <label class="pure-u-2-3" for="feelings">How are you feeling today?</label>
+          <textarea class= "myInput pure-u-1" id="feelings" placeholder="Enter your feelings here" ></textarea>
+        </div>
       </div>
-      <div class ="holder feel">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-        <button id="generate" type = "submit"> Generate </button>
+      <div>
+        <button class="pure-button pure-u-5-5" id="generate" type = "submit"> Generate </button>
       </div>
       <div class ="holder entry">
         <div class = "title">Most Recent Entry</div>
