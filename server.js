@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 // Setup empty JS object to act as endpoint for all routes
 let projectData = {
-  weatherentry: [],
 };
 
 // Require Express to run server and routes
@@ -30,15 +29,17 @@ app.get('/all', (req, res) => {
   res.send(projectData.weatherentry);
 });
 
-app.post('/add', (request, response) => {
-  const newData = request.body;
-  console.log(newData);
-  projectData.weatherentry.push(newData);
-  console.log(projectData);
-  response.send({
-    status: 'successful',
+
+  app.post("/data", (req, res) => {
+    // should post date, temp and content
+    projectData.date = req.body.date;
+    projectData.temp = req.body.temp;
+    projectData.content = req.body.content;
+    res.send({ msg: "data posted successfully" });
+    // because res.send("data posted..") led to an error (Error! SyntaxError: Unexpected token d in JSON at position 0)
+    console.log("server ", projectData);
   });
-});
+
 
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}`);
