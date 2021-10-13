@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 // const zip = '94040';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&appid=e5935c759f600ef1895b289b2deb85f3&units=imperial';
+const apiKey = '&appid=e5935c759f600ef1895b289b2deb85f3&units=metric';
 // Create a new date instance dynamically with JS
 let day = new Date();
-let newDate = (day.getMonth() + 1) + '/'+ day.getDate()+'/'+ day.getFullYear();
+let newDate = day.getMonth() + 1 + '/' + day.getDate() + '/' + day.getFullYear();
 
 // eslint-disable-next-line no-use-before-define
 const generate = document.getElementById('generate').addEventListener('click', performAction);
@@ -32,19 +32,18 @@ const saveWeatherData = async (url = '/add', data = {}) => {
 };
 
 // manipulate HTML file for dynamic UI
-const updateUI = async()=>{
-  const request = await fetch('/all')
-  try{
+const updateUI = async () => {
+  const request = await fetch('/all');
+  try {
     const allData = await request.json();
-    console.log(allData)
+    console.log(allData);
     document.getElementById('date').innerHTML = `Date: ${allData.date}`;
     document.getElementById('temp').innerHTML = `Temperature: ${allData.temp}`;
     document.getElementById('content').innerHTML = `I feel: ${allData.content}`;
+  } catch (err) {
+    console.log('error', err);
   }
-  catch(err){
-    console.log('error',err);
-  }
-}
+};
 
 async function performAction() {
   // capture zip value
@@ -74,5 +73,5 @@ async function performAction() {
     user_feelings: feelings,
   };
   await saveWeatherData('/add', weatherEntry);
-  await printLatestEntry('/all');
+  await updateUI('/all');
 }
